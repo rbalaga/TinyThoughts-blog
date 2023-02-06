@@ -5,6 +5,7 @@ import AddPost from "./components/AddPost";
 import ErrorPopup from "./components/ErrorPopup";
 import Header from "./components/Header";
 import Posts from "./components/Posts";
+import Protected from "./components/Protected";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import { fetchCategories, initUserState } from "./store/actions";
@@ -33,7 +34,7 @@ const App = (props) => {
           <Signup />
         </Route>
         <Route exact path="/add">
-          <AddPost />
+          <Protected><AddPost /></Protected>
         </Route>
         <Route exact path="/" component={Posts} />
       </Switch>
