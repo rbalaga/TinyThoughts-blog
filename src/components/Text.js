@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
-const Text = ({ label, value, onUpdate, maxLength = 200 }) => {
+const Text = ({ label, name, value, onUpdate, maxLength = 200 }) => {
   const [isValid, setIsValid] = useState(true);
   const [touched, isTouched] = useState(false);
 
   const handleChange = (e) => {
     setIsValid(e.target.validity.valid);
-    onUpdate(e.target.value.replace(/(?:\\r)/g, "\\n\\n"));
+    const { name, value } = e.target;
+    const target = { name, value: value.replace(/(?:\\r)/g, "\\n\\n") };
+    onUpdate({ target });
   };
 
   const handleBlur = (e) => {
@@ -19,6 +21,7 @@ const Text = ({ label, value, onUpdate, maxLength = 200 }) => {
       <textarea
         maxLength={maxLength}
         required
+        name={name}
         value={value}
         onChange={handleChange}
         onBlur={handleBlur}

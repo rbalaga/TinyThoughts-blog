@@ -30,6 +30,11 @@ const Posts = memo((props) => {
       <div className="main">
         <Categories categories={categories} />
         <div className="content">
+          {posts && posts.length === 0 && (
+            <div className="post" style={{ textAlign: "center" }}>
+              <h1>No posts to dispay</h1>
+            </div>
+          )}
           {posts && posts.map((post) => <Post key={post.id} post={post} />)}
         </div>
       </div>

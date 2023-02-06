@@ -26,10 +26,10 @@ const Signup = (props) => {
     <div className="sign-up">
       <h2>Signup</h2>
       <div className="signup-form">
-        <Input required type="text" label="Name" value={name} name="name" onChange={handleChange} />
-        <Input required type="email" label="E-Mail" value={email} name="email" onChange={handleChange} />
-        <Input required type="password" label="Password" value={password} name="password" onChange={handleChange} />
-        <Input required type="password" label="Retype Password" value={repassword} name="repassword" onChange={handleChange} />
+        <Input type="text" label="Name" value={name} name="name" onInput={handleChange} />
+        <Input type="email" label="E-Mail" value={email} name="email" onInput={handleChange} />
+        <Input type="password" label="Password" value={password} name="password" onInput={handleChange} />
+        <Input type="password" label="Retype Password" value={repassword} name="repassword" onInput={handleChange} />
         <button onClick={handleSubmit}>Done!</button>
       </div>
     </div>

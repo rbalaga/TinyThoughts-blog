@@ -84,41 +84,51 @@ export const fetchPosts = () => (dispatch) => {
 
 export const fetchPostsByAuthor = (authorId) => (dispatch) => {
   getPostsByAuthor(authorId)
-    .then((posts) =>
-      dispatch({ type: actionTypes.GET_POSTS_SUCCESS, posts: posts })
-    )
+    .then((posts) => dispatch({ type: actionTypes.GET_POSTS_SUCCESS, posts: posts }))
     .catch((error) =>
       dispatch({ type: actionTypes.GET_POSTS_FAILURE, error: error })
     );
 };
 
-export const fetchPostsByCategory = (categoryId) => dispatch => {
+export const fetchPostsByCategory = (categoryId) => (dispatch) => {
   getPostsByCategory(categoryId)
     .then((posts) => dispatch({ type: actionTypes.GET_POSTS_SUCCESS, posts: posts }))
     .catch((error) =>
       dispatch({ type: actionTypes.GET_POSTS_FAILURE, error: error })
     );
-}
+};
 
-export const fetchCategories = () => dispatch => {
+export const fetchCategories = () => (dispatch) => {
   getCategories()
-    .then(categories => dispatch({type: actionTypes.GET_CATEGORIES_SUCCESS, categories}))
-    .catch(error => dispatch({type: actionTypes.GET_CATEGORIES_FAILURE, error: error}))
-}
+    .then((categories) =>
+      dispatch({ type: actionTypes.GET_CATEGORIES_SUCCESS, categories })
+    )
+    .catch((error) =>
+      dispatch({ type: actionTypes.GET_CATEGORIES_FAILURE, error: error })
+    );
+};
 
-export const addPost = (post, history) => dispatch => {
+export const addPost = (post, history) => (dispatch) => {
   addPostAndFetch(post)
-    .then(newPost => {
-      dispatch({ type: actionTypes.ADD_POST_SUCCESS, post: newPost });
+    .then((newPost) => {
+      const { author, title, content, categories, timestamp } = newPost;
+      dispatch({
+        type: actionTypes.ADD_POST_SUCCESS,
+        post: { author, title, categories, content, timestamp },
+      });
       history.push("/");
     })
-    .catch(error => dispatch({ type: actionTypes.ADD_POST_FAILURE, error: error }));
-}
+    .catch((error) => {
+      dispatch({ type: actionTypes.ADD_POST_FAILURE, error: error });
+    });
+};
 
-export const deletePost = (postId) => dispatch => {
+export const deletePost = (postId) => (dispatch) => {
   deletePostAndFetch(postId)
-    .then((posts) => dispatch({ type: actionTypes.DELETE_POST_SUCCESS, posts }))
+    .then((posts) =>
+      dispatch({ type: actionTypes.DELETE_POSTS_SUCCESS, posts })
+    )
     .catch((err) => {
       dispatch({ type: actionTypes.DELETE_POST_FAILURE, error: err });
     });
-}
+};

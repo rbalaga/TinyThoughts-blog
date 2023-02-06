@@ -25,8 +25,8 @@ const Signin = (props) => {
     <div className="sign-in">
       <h2>Signin</h2>
       <div className="signin-form">
-        <Input maxLength="100" required type="email" label="E-Mail" value={email} name="email" onChange={handleChange} />
-        <Input maxLength="30" required type="password" label="Password" value={password} name="password" onChange={handleChange} />
+        <Input maxLength="100" required type="email" label="E-Mail" value={email} name="email" onInput={handleChange} />
+        <Input maxLength="30" required type="password" label="Password" value={password} name="password" onInput={handleChange} />
         <button onClick={handleSubmit}>Go!</button>
       </div>
     </div>

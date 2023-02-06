@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-const Input = ({ type, label, value, name, required, maxLength, onChange }) => {
+const Input = ({ type, label, value, name, maxLength, onInput }) => {
   const [isValid, setIsValid] = useState(true);
   const [touched, setTouched] = useState(false);
 
   const handleChange = (e) => {
     setIsValid(e.target.validity.valid);
-    onChange(e);
+    onInput(e);
   };
 
   const handleBlur = (e) => {
@@ -18,7 +18,7 @@ const Input = ({ type, label, value, name, required, maxLength, onChange }) => {
       <span className="label">{label}</span>
       <input
         maxLength={maxLength}
-        required={required}
+        required
         type={type}
         value={value}
         name={name}

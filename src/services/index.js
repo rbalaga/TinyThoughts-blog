@@ -130,7 +130,7 @@ export const addPostAndFetch = (post) =>
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `Bearer ${token}`,
+          authorization: `Bearer ${token}`,
         },
         cache: "no-cache",
         body: JSON.stringify(post),
@@ -150,7 +150,7 @@ export const deletePostAndFetch = (postId) =>
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `Bearer ${token}`,
+          authorization: `Bearer ${token}`,
         },
         cache: "no-cache",
       })

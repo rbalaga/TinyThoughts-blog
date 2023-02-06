@@ -9,7 +9,7 @@ const Select = ({ label, value, options, onChange }) => {
     <div className="select-list">
       <span className="label">{label}</span>
       <select defaultValue={value} onChange={handleChange}>
-        <option disabled>Select</option>
+        <option>Select</option>
         {options &&
           options.map(({ id, title }) => (
             <option key={id} value={id}>
