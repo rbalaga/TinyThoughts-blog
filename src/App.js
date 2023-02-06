@@ -8,10 +8,10 @@ import Posts from "./components/Posts";
 import Protected from "./components/Protected";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+import Unprotected from "./components/Unprotected";
 import { fetchCategories, initUserState } from "./store/actions";
 
 const App = (props) => {
-
   useEffect(() => {
     props.initUserState();
     props.fetchCategories();
@@ -28,13 +28,19 @@ const App = (props) => {
           <Posts type="category" />
         </Route>
         <Route exact path="/signin">
-          <Signin />
+          <Unprotected>
+            <Signin />
+          </Unprotected>
         </Route>
         <Route exact path="/signup">
-          <Signup />
+          <Unprotected>
+            <Signup />
+          </Unprotected>
         </Route>
         <Route exact path="/add">
-          <Protected><AddPost /></Protected>
+          <Protected>
+            <AddPost />
+          </Protected>
         </Route>
         <Route exact path="/" component={Posts} />
       </Switch>

@@ -24,13 +24,15 @@ const Post = memo((props) => {
       <h3>
         by{" "}
         {post.author && (
-          <Link to={`/author/${post.author.id}`}>{post.author.name} |</Link>
+          <Link to={`/author/${post.author.id}`}>{post.author.name}</Link>
         )}
+        |
         {post.categories && (
           <Link to={`/category/${post.categories.id}`}>
-            {post.categories.title} |
+            {post.categories.title}
           </Link>
         )}
+        |
         Posted on {formatedTimestamp}
       </h3>
       <p>{post.content}</p>

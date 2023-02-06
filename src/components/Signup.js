@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { signUp } from "../store/actions";
+import { setError, signUp } from "../store/actions";
 import Input from "./Input";
 
 const Signup = (props) => {
@@ -15,10 +15,16 @@ const Signup = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === repassword) {
-      props.signUp(name, email, password, history);
+    if (!name) {
+      props.setError("Please provide name");
+    } else if (!email) {
+      props.setError("Please provide email");
+    } else if(!password) {
+      props.setError("Please provide password");
+    } else if (password !== repassword) {
+      props.setError("Password and Retyped Password didn't match");
     } else {
-      alert("Passwords don't match");
+      props.signUp(name, email, password, history);
     }
   }
 
@@ -39,7 +45,8 @@ const Signup = (props) => {
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  signUp: (name, email, password, history) => dispatch(signUp(name, email, password, history))
+  signUp: (name, email, password, history) => dispatch(signUp(name, email, password, history)),
+  setError: (error) => dispatch(setError(error))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

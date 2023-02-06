@@ -7,7 +7,7 @@ const Categories = ({ categories }) => {
       {categories &&
         categories.map((category) => (
           <Link key={category.id} to={`/category/${category.id}`}>
-            <li key={category.id}>{category.title}</li>
+            <li>{category.title}</li>
           </Link>
         ))}
       <Link to="/">

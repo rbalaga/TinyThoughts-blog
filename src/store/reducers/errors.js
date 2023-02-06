@@ -13,6 +13,7 @@ const errors = (state = initialState, action) => {
     case actionTypes.INIT_FAILURE:
     case actionTypes.ADD_POST_FAILURE:
     case actionTypes.DELETE_POST_FAILURE:
+    case actionTypes.SET_ERROR_MESSAGE:
       return {
         error: true,
         message: action.error,

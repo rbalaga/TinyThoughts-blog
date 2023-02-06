@@ -1,7 +1,7 @@
 import React, { memo, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addPost } from "../store/actions";
+import { addPost, setError } from "../store/actions";
 import Input from "./Input";
 import Select from "./Select";
 import Text from "./Text";
@@ -17,14 +17,22 @@ const AddPost = memo((props) => {
   };
 
   const handleSubmit = (e) => {
-    const post = {
-      authorId: parseInt(props.author.id, 10),
-      title: postObj.title,
-      content: postObj.content,
-      categoriesId: postObj.categoriesId,
-      timestamp: new Date()
+    if (!title) {
+      props.setError('Please enter title');
+    } else if (!content) {
+      props.setError('Please enter content');
+    } else if (!categoriesId) {
+      props.setError('Please select a category');
+    } else {
+      const post = {
+        authorId: parseInt(props.author.id, 10),
+        title: postObj.title,
+        content: postObj.content,
+        categoriesId: postObj.categoriesId,
+        timestamp: new Date()
+      }
+      props.addPost(post, history);
     }
-    props.addPost(post, history);
   }
 
   const handleSelectChange = (val) => {
@@ -50,8 +58,9 @@ const mapStateToProps = (state) => ({
   author: state.users
 });
 
-const mapDispatcherToProps = (post) => (dispatch) => ({
-  addPost: (post, history) => dispatch(addPost(post, history))
+const mapDispatcherToProps = () => (dispatch) => ({
+  addPost: (post, history) => dispatch(addPost(post, history)),
+  setError: (error) => dispatch(setError(error)),
 });
 
 export default connect(mapStateToProps, mapDispatcherToProps)(AddPost);

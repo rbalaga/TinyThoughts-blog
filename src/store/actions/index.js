@@ -27,6 +27,7 @@ export const actionTypes = {
   SIGNIN_FAILURE: "SIGNIN_FAILURE",
   ADD_POST_FAILURE: "ADD_POST_FAILURE",
   DELETE_POST_FAILURE: "DELETE_POST_FAILURE",
+  SET_ERROR_MESSAGE: "SET_ERROR_MESSAGE",
 };
 
 export const signIn = (email, password, history, location) => (dispatch) => {
@@ -131,4 +132,8 @@ export const deletePost = (postId) => (dispatch) => {
     .catch((err) => {
       dispatch({ type: actionTypes.DELETE_POST_FAILURE, error: err });
     });
+};
+
+export const setError = (error) => (dispatch) => {
+  dispatch({ type: actionTypes.SET_ERROR_MESSAGE, error });
 };
