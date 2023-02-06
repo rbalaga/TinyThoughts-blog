@@ -21,8 +21,6 @@ const Signin = (props) => {
     props.signIn(email, password, history, location);
   }
 
-  console.log('Location: ', history, location);
-
   return (
     <div className="sign-in">
       <h2>Signin</h2>

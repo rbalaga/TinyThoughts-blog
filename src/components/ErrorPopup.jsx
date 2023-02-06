@@ -14,7 +14,7 @@ const ErrorPopup = ({ error }) => {
     return () => clearTimeout(timer);
   },[error]);
 
-  return msg ? <div className="error-popup">{JSON.stringify(msg)}</div> : <></>;
+  return msg ? <div className="error-popup">{msg}</div> : <></>;
 }
 
 const mapStateToProps = (state) => ({ error: state.errors });
