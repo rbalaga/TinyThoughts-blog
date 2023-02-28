@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/TinyThoughts-blog/precache-manifest.0e2da3172388c8cf9d5d24f467e00f7e.js"
+  "/TinyThoughts-blog/precache-manifest.28c3a5c1c32431825ddaf57592f1d4cc.js"
 );
 
 self.addEventListener('message', (event) => {

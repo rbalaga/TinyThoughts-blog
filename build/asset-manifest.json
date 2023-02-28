@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/TinyThoughts-blog/static/css/main.ee7a194f.chunk.css",
-    "main.js": "/TinyThoughts-blog/static/js/main.dec15392.chunk.js",
-    "main.js.map": "/TinyThoughts-blog/static/js/main.dec15392.chunk.js.map",
+    "main.js": "/TinyThoughts-blog/static/js/main.fab62201.chunk.js",
+    "main.js.map": "/TinyThoughts-blog/static/js/main.fab62201.chunk.js.map",
     "runtime-main.js": "/TinyThoughts-blog/static/js/runtime-main.23af0438.js",
     "runtime-main.js.map": "/TinyThoughts-blog/static/js/runtime-main.23af0438.js.map",
-    "static/js/2.8366b1c9.chunk.js": "/TinyThoughts-blog/static/js/2.8366b1c9.chunk.js",
-    "static/js/2.8366b1c9.chunk.js.map": "/TinyThoughts-blog/static/js/2.8366b1c9.chunk.js.map",
+    "static/js/2.068745ba.chunk.js": "/TinyThoughts-blog/static/js/2.068745ba.chunk.js",
+    "static/js/2.068745ba.chunk.js.map": "/TinyThoughts-blog/static/js/2.068745ba.chunk.js.map",
     "index.html": "/TinyThoughts-blog/index.html",
-    "precache-manifest.0e2da3172388c8cf9d5d24f467e00f7e.js": "/TinyThoughts-blog/precache-manifest.0e2da3172388c8cf9d5d24f467e00f7e.js",
+    "precache-manifest.28c3a5c1c32431825ddaf57592f1d4cc.js": "/TinyThoughts-blog/precache-manifest.28c3a5c1c32431825ddaf57592f1d4cc.js",
     "service-worker.js": "/TinyThoughts-blog/service-worker.js",
     "static/css/main.ee7a194f.chunk.css.map": "/TinyThoughts-blog/static/css/main.ee7a194f.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.23af0438.js",
-    "static/js/2.8366b1c9.chunk.js",
+    "static/js/2.068745ba.chunk.js",
     "static/css/main.ee7a194f.chunk.css",
-    "static/js/main.dec15392.chunk.js"
+    "static/js/main.fab62201.chunk.js"
   ]
 }

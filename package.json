@@ -29,8 +29,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "gh-pages -b main -d build",
+    "build": "SET BUILD_PATH='./docs' && react-scripts build",
+    "deploy": "gh-pages -b main -d docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
